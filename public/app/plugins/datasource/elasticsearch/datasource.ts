@@ -690,6 +690,8 @@ export class ElasticDatasource extends DataSourceApi<ElasticsearchQuery, Elastic
     );
   }
 
+  private legacy_getFields() {}
+
   getTerms(queryDef: any, range = getDefaultTimeRange()): Observable<MetricFindValue[]> {
     const searchType = this.esVersion >= 5 ? 'query_then_fetch' : 'count';
     const header = this.getQueryHeader(searchType, range.from, range.to);
